@@ -1103,4 +1103,4 @@ function confetti(){
 /* ============ boot ============ */
 (async()=>{if(S.decks.some(d=>d.sample)){S.decks=S.decks.filter(d=>!d.sample);save()}render();await dictReady;render()})();
 </script>
-<script>if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){navigator.serviceWorker.register('sw.js').catch(()=>{})}</script></body></html>
+<script>if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(r=>{r.update();document.addEventListener('visibilitychange',()=>{if(!document.hidden)r.update()})}).catch(()=>{});let rl=false;navigator.serviceWorker.addEventListener('controllerchange',()=>{if(rl)return;rl=true;location.reload()})}</script></body></html>
